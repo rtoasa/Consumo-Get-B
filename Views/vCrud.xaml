@@ -10,21 +10,85 @@
             Text="CRUD DE ESTUDIANTES"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <ListView x:Name="lvEstudiante">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblCodigo" 
+          Text="Codigo"
+            Grid.Row="0"
+            Grid.Column="0"
+                   />
+
+            <Label x:Name="lblNombre" 
+          Text="Nombre"
+            Grid.Row="0"
+            Grid.Column="1"/>
+            <Label x:Name="lblApellido"
+                 Text="Apellido"
+            Grid.Row="0"
+            Grid.Column="2"/>
+            <Label x:Name="lbledad"
+     Text="Edad"
+Grid.Row="0"
+Grid.Column="3"/>
+
+        </Grid>
+        <ListView x:Name="lvEstudiante" ItemSelected="lvEstudiante_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label x:Name="lblNombre" 
-                                   Text="{Binding Nombre}"/>
-                            <Label x:Name="lblApellido"
-                                   Text="{Binding Apellido}"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="lblCodigo" 
+                                     Text="{Binding Codigo}"
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                
+                                <Label x:Name="lblNombre" 
+                                     Text="{Binding Nombre}"
+                                       Grid.Row="0"
+                                       Grid.Column="1"/>
+                                <Label x:Name="lblApellido"
+                                            Text="{Binding Apellido}"
+                                       Grid.Row="0"
+                                       Grid.Column="2"/>
+                                <Label x:Name="lbledad"
+                                Text="{Binding Edad}"
+                           Grid.Row="0"
+                           Grid.Column="3"/>    
+                                
+                                
+                                
+                            </Grid>
+
+                                    
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+        <Button x:Name="btnnuevo"
+                Text="Añadir Estudiante"
+                Clicked="btnnuevo_Clicked"/>
+
     </VerticalStackLayout>
 </ContentPage>

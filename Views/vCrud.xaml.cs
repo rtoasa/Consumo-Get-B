@@ -27,4 +27,15 @@ public partial class vCrud : ContentPage
 		lvEstudiante.ItemsSource = _estudiante;
 
 	}
+
+    private void btnnuevo_Clicked(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new vAñadirEstudiante());
+    }
+
+    private void lvEstudiante_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		var objEstudiante = (Estudiante)e.SelectedItem;
+		Navigation.PushAsync(new vActEliminarEstudiante(objEstudiante));
+    }
 }
